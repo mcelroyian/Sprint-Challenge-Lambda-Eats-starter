@@ -27,3 +27,7 @@ h1, button {
   color: #dae1e7;
   height: 90vh;
 }
+label {
+  display: block;
+  padding-bottom: 10px
+}
