@@ -1,11 +1,12 @@
 import React from 'react'
 
 function Form(props) {
-    const {disabled, values, inputChange, checkChange, onSubmit} = props
+    const {disabled, values, errors, inputChange, checkChange, onSubmit} = props
     return (
         <div className="form-container">
             <h2>Build your Pizza</h2>
             <form>
+            <div className='errors'>{errors.name}</div>
             <label >Name: &nbsp;
             <input 
                 onChange={inputChange}
