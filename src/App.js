@@ -4,6 +4,7 @@ import axios from 'axios'
 import * as yup from 'yup'
 import Home from './Home'
 import Form from './Form'
+import Order from './Order'
 import "./index.css";
 
 
@@ -36,7 +37,11 @@ const schema = yup.object().shape({
   name: yup
     .string()
     .min(2, 'Username must be at least 2 characters')
-    .required('Username is required')
+    .required('Username is required'),
+  size: yup
+    .string(),
+  instructions: yup
+    .string(),  
 })
 
 
@@ -120,6 +125,7 @@ const App = () => {
         <Switch>
           <Route path="/pizza" >
             <Form errors={errors} disabled={isDisabled} values={pizzaForm} inputChange={inputChange} checkChange={checkChange} onSubmit={onSubmit}  />
+            {pizzas.map(pizza => <Order key={pizza.id }pizza={pizza} />)}
           </Route>
           <Route path='/'>
             <Home />
